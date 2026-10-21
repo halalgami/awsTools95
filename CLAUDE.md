@@ -6,11 +6,11 @@ This file guides Claude Code (claude.ai/code) when working in this repository.
 
 AWS 95 Tools is a native desktop explorer for multiple AWS accounts with a Windows 95 look: a desktop, taskbar, Start menu, MDI program windows, original sounds, screensavers, and Light and Dark themes. It is built with PySide6 (Qt Widgets) and runs on macOS and Windows.
 
-Phase 1 (the UI revamp) built every program window. Phase 2a added the read-only AWS layer, the setup wizard and live Accounts; 2b added the labsnap engine (snapshots feed Resources, Findings, Fleet, Snapshots and Billing). 2c wires ctwatch (Activity): history is loaded from CloudTrail LookupEvents in the background, newest first and resumable, and Import History… reads the trail's S3 log files under a validator scoped to one bucket and one account. Windows read only from the local store `aws95.db`; only Take Snapshot, Update activity (F5 / Resume / Load Activity History…), Import History…, Verify and Sign In reach AWS. Reports and Ctrl+K search (2d part 1) read the same store through the other providers. AI Insights, the one window not yet wired, shows an honest `NOT_CONNECTED` state, or watermarked demo data with `--demo`.
+Every window is live (3.1.0). Windows read only the local store `aws95.db`, which snapshots (labsnap engine: resumable sections over 19 collectors, 38 rules) and Activity loads (ctwatch engine: CloudTrail LookupEvents, Import History… from the trail's S3 files) fill. Only Take/Resume Snapshot, Update activity, Import History…, Verify, Sign In and AI Insights' Refresh models / Analyze reach AWS. Reports and Ctrl+K search are composed from the other providers. `--demo` shows watermarked sample data; `--offline` never touches AWS. Status, design decisions, the release recipe and the backlog are in `docs/PROJECT_CONTEXT.md`.
 
 It is strictly **read-only** against AWS, with one named exception: AI Insights' `bedrock-runtime:Converse` (gate.INSIGHTS, VALIDATED by a strict request check), made only on Analyze with the reviewed aggregate payload; it writes nothing. Only `aws95/aws` imports boto3/botocore (lazily). Every AWS API call aws95 makes goes through `aws95.aws.gate`, which allows only the reviewed `(service, operation)` pairs in `gate.ALLOWED`; tests enforce it. SDK credential resolution (STS/SSO token refresh) is botocore's own and outside the gate. aws95 never writes `~/.aws` (the AWS CLI launched by Sign In writes its own `~/.aws/sso/cache`, and botocore may refresh its own SSO token cache while resolving credentials).
 
-**Binding design specs:** phase 1 `docs/superpowers/specs/2026-10-02-aws95-ui-revamp-design.md`; phase 2a (AWS foundation, setup wizard, live Accounts) `docs/superpowers/specs/2026-10-05-phase2a-foundation-accounts-design.md`; first drop (2b snapshots, 2c activity, 2p publish) `docs/superpowers/specs/2026-10-07-first-drop-design.md`
+**Binding design specs:** one per feature in `docs/superpowers/specs/` (phase 1 UI revamp, 2a foundation, first drop, resumable snapshots, reports and search, billing complete, activity polish, findings tools, AI insights). A spec is the authority when code and docs disagree.
 
 Milestones:
 - **M1:** foundation and widget kit.
@@ -20,7 +20,7 @@ Milestones:
 
 Plans are in `docs/superpowers/plans/`. Rulings, deferred items and real-device checklists are in `docs/superpowers/followups/`. Both folders are private working notes and are never published (`tools/publish_check.EXCLUDED_DIRS`).
 
-**Resuming on any machine:** read `docs/PROJECT_CONTEXT.md` first, then the master to-do list `docs/superpowers/followups/MASTER-TODO.md` (private; not in the public repo) (what's done, what's next, pending owner decisions). It holds the status, the design decisions, the phase-2 roadmap and how the owner likes work run (subagent-driven, rulings, conservative agent use, Dark/large-font legibility is Important). Keep it updated at the end of each milestone, since local Claude memory does not travel with the repo.
+**Resuming (person or agent, any machine):** read `docs/PROJECT_CONTEXT.md` first: what works, where things are, how work is done, how to release, the backlog. The owner's private checkout also has `docs/superpowers/followups/MASTER-TODO.md` and the plans; they are never published and nothing in the public repo depends on them. Keep `PROJECT_CONTEXT.md` current at the end of each piece of work.
 
 ## Quick commands
 
@@ -138,13 +138,11 @@ Rules every program follows:
 
 ## Git workflow
 
-- `main` holds only the pre-revamp baseline. **Never commit to main** and never merge into it without asking.
-- Integration branch: `feature/ui-revamp-spec`. M1–M4 (all of phase 1) are merged there.
-- One task, one branch: `feature/<topic>`, branched from the integration branch. Keep PRs small.
-- Conventional commits, ending with a `Co-Authored-By: Claude <model> <noreply@anthropic.com>` trailer.
-- Public releases go to `https://github.com/halalgami/awsTools95`. Only the local `public` branch is pushed, as `main`, and private branches never leave the machine. `public` is a scrubbed history: its first commit is an orphan built from the integration branch's tree minus `docs/superpowers/plans/` and `docs/superpowers/followups/`, and each later release is one commit onto `public` built the same way (the full recipe is in the private 2p plan, Task 7). Every push needs the owner's explicit OK at that moment.
+- **From the public repo** (`https://github.com/halalgami/awsTools95`): branch `feature/<topic>` off `main`, keep PRs small. Never commit to `main` directly.
+- **In the owner's private checkout:** the development branch is `feature/ui-revamp-spec` (local `main` is an old pre-revamp baseline: never commit or merge into it). Feature branches come off `feature/ui-revamp-spec`. Releases are published from the local `public` branch, one scrubbed commit per release, pushed as `main`; the recipe is in `docs/PROJECT_CONTEXT.md` § Releasing. Every merge and push needs the owner's explicit OK at that moment.
+- One task, one branch. Conventional commits, ending with a `Co-Authored-By: Claude <model> <noreply@anthropic.com>` trailer.
 - `tests/test_publish_check.py` runs `tools/publish_check.py` on every test run. It fails on non-placeholder account IDs, real-looking emails, AWS keys, organisation names (stored as digests), and tracked data files. Never weaken an allow-list to make it pass: fix the content, or add one exact `ALLOWED_OCCURRENCES` entry with a reason.
-- Never push the gitignored data files (`aws95.db`, `aws_data.db`, report CSVs, `AWS_COST_*.md`, `.env`); they hold account-specific data.
+- Never commit the gitignored data files (`aws95.db`, `aws_data.db`, report CSVs, `AWS_COST_*.md`, `.env`); they hold account-specific data. Use the placeholder account ids (`123456789012`, `210987654321`, repdigits) in tests and docs.
 
 ## Legacy code
 
