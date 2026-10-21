@@ -70,9 +70,9 @@ def test_accounts_health_and_verify_do_not_own_status(program_env, qtbot):
 
 def test_findings_rules_dialog_does_not_own_status(program_env, qtbot):
     w = _open(program_env, qtbot, make_findings, findings=("rules",))
-    qtbot.waitUntil(lambda: len(w.grid.visible_rows()) == 11)
+    qtbot.waitUntil(lambda: len(w.grid.visible_rows()) == 13)
     dlg = w.open_rules_dialog()
-    qtbot.waitUntil(lambda: len(dlg.table.visible_rows()) == 10)
+    qtbot.waitUntil(lambda: len(dlg.table.visible_rows()) == 12)
     qtbot.wait(100)
     assert _status_clean(w)
     dlg.close()

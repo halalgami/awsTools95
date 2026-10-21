@@ -6,9 +6,9 @@ from aws95.aws.engines.labsnap.rules.base import DuplicateRule, RuleOverrides, l
 from aws95.aws.engines.labsnap.rules.sources import RULE_COLLECTORS
 
 
-def test_thirty_eight_rules_each_with_known_sources():
+def test_builtin_rules_each_with_known_sources():
     rules = load_rules()
-    assert len(rules) == 38
+    assert len(rules) == 44
     assert [r.id for r in rules] == sorted(r.id for r in rules)
     assert set(RULE_COLLECTORS) == {r.id for r in rules}
     known = set(all_collectors())

@@ -3,7 +3,12 @@ reads ran OK in that account's latest snapshot; a finding absent where its colle
 from __future__ import annotations
 
 RULE_COLLECTORS: dict[str, tuple[str, ...]] = {
+    "apigateway.stage_no_access_logging": ("apigateway",),
     "budget.ineffective": ("budgets", "cost"),
+    "cloudfront.http_allowed": ("cloudfront",),
+    "cloudfront.no_access_logging": ("cloudfront",),
+    "cloudfront.no_waf": ("cloudfront",),
+    "cloudfront.old_tls": ("cloudfront",),
     "cloudtrail.not_logging": ("cloudtrail",),
     "cognito.mfa_off": ("cognito",),
     "cognito.self_signup_allowed": ("cognito",),
@@ -34,6 +39,7 @@ RULE_COLLECTORS: dict[str, tuple[str, ...]] = {
     "logs.no_retention": ("logs",),
     "rds.public": ("rds",),
     "rds.sg_open": ("rds",),
+    "route53.public_zone_no_query_logging": ("route53",),
     "s3.anonymous_read": ("s3",),
     "s3.no_encryption": ("s3",),
     "s3.no_lifecycle": ("s3",),

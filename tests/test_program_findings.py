@@ -14,7 +14,7 @@ def demo(program_env, qtbot):
     w, ctx = program_env(make_findings, demo_provider_set())
     qtbot.addWidget(w)
     w.show()
-    qtbot.waitUntil(lambda: len(w.grid.visible_rows()) == 11)    # StateView starts in CONTENT: wait for rows
+    qtbot.waitUntil(lambda: len(w.grid.visible_rows()) == 13)    # StateView starts in CONTENT: wait for rows
     return w, ctx
 
 
@@ -28,7 +28,7 @@ def test_empty_mode(program_env, qtbot):
 def test_open_findings_columns_and_seeded_marker(demo):
     w, _ = demo
     rows = w.grid.visible_rows()
-    assert len(rows) == 11 and {r["severity"] for r in rows} == {"critical", "high", "medium", "low"}
+    assert len(rows) == 13 and {r["severity"] for r in rows} == {"critical", "high", "medium", "low"}
     seeded = [r for r in rows if r["rule"] == "cloudtrail-off"][0]
     assert seeded["first_seen"].endswith(" (seeded)") and seeded["age"] == 300
     assert w.severity_buttons["critical"].text() == "Critical (3)"
@@ -38,9 +38,9 @@ def test_severity_chip_filters(demo):
     w, _ = demo
     w.severity_buttons["critical"].click()
     assert all(r["severity"] != "critical" for r in w.grid.visible_rows())
-    assert len(w.grid.visible_rows()) == 8
+    assert len(w.grid.visible_rows()) == 10
     w.severity_buttons["critical"].click()
-    assert len(w.grid.visible_rows()) == 11
+    assert len(w.grid.visible_rows()) == 13
 
 
 def test_state_tabs(demo, qtbot):
@@ -90,7 +90,7 @@ def test_rules_dialog_lists_rules(demo, qtbot):
     w, _ = demo
     dlg = w.open_rules_dialog()
     qtbot.addWidget(dlg)
-    qtbot.waitUntil(lambda: len(dlg.table.visible_rows()) == 10)
+    qtbot.waitUntil(lambda: len(dlg.table.visible_rows()) == 12)
     rows = dlg.table.visible_rows()
     assert [r["enabled"] for r in rows if r["id"] == "budget-missing"] == ["No"]
     assert not dlg.save_button.isEnabled()
@@ -248,7 +248,7 @@ def test_all_chips_off_reports_hidden_findings(demo):
     for b in w.severity_buttons.values():
         b.click()
     assert w.grid.visible_rows() == []
-    assert w.status.counts_label.text() == "11 findings hidden by severity filter"
+    assert w.status.counts_label.text() == "13 findings hidden by severity filter"
 
 
 def test_dialog_focus_goes_to_first_input(demo, qtbot):

@@ -108,7 +108,8 @@ def test_uncovered_and_charts(demo, qtbot):
     assert w.pages["trend"].chart is not None and w.pages["service"].chart.bar_count == 10
     w.select_tab("uncovered")
     qtbot.waitUntil(lambda: bool(w.pages["uncovered"].grid.visible_rows()))      # services the map leaves uncovered
-    assert {r["service"] for r in w.pages["uncovered"].grid.visible_rows()} >= {"Amazon Route 53", "Tax"}
+    services = {r["service"] for r in w.pages["uncovered"].grid.visible_rows()}
+    assert "Tax" in services and "Amazon Route 53" not in services                  # a collector covers it now
     grid = w.pages["uncovered"].grid
     row = grid.visible_rows()[0]
     grid.row_activated.emit(row)

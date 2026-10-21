@@ -77,7 +77,7 @@ def test_findings_states_rules_and_fleet(ps):
     only_a = ps.findings.list_findings(Scope(accounts=(A,)), "open").data.items
     assert only_a and {f.account for f in only_a} == {A}
     rules = ps.findings.rules(Scope()).data
-    assert len(rules) == 10 and sum(1 for r in rules if not r.enabled) == 1
+    assert len(rules) == 12 and sum(1 for r in rules if not r.enabled) == 1
     cells = ps.findings.fleet(Scope()).data
     assert {(c.account, c.rule) for c in cells if not c.collected} == {(B, "iam-user-no-mfa"), (B, "iam-access-key-old")}
 
@@ -179,3 +179,15 @@ def test_demo_activity_never_reaches_aws(ps):
               ps.activity.find_trails(Scope()), ps.activity.check_import(Scope()),
               ps.activity.import_history(Scope())):
         assert r.status is Status.NOT_CONNECTED and r.is_demo and "demo mode" in r.message
+
+
+def test_demo_shows_edge_and_dns(ps):
+    """Edge-dns spec §5: hosted zones, APIs with stages and distributions, with findings for the new rules."""
+    types = {t.rtype: t.domain for t in ps.resources.resource_types(Scope()).data}
+    assert types["route53.hosted_zone"] == types["cloudfront.distribution"] == "Edge & DNS"
+    assert types["apigateway.api"] == types["apigateway.stage"] == "Network"
+    counts = {rt: len(ps.resources.list_resources(Scope(), rt).data.items) for rt in types if "." in rt}
+    assert (counts["route53.hosted_zone"], counts["apigateway.api"], counts["cloudfront.distribution"]) == (2, 3, 2)
+    assert counts["apigateway.stage"] >= 3
+    open_rules = {f.rule for f in ps.findings.list_findings(Scope(), "open").data.items}
+    assert {"cloudfront-no-waf", "apigw-stage-no-logging"} <= open_rules

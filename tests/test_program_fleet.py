@@ -18,7 +18,7 @@ def demo(program_env, qtbot):
     w, ctx = program_env(make_fleet, demo_provider_set())
     qtbot.addWidget(w)
     w.show()
-    qtbot.waitUntil(lambda: len(w.rules()) == 10 and w.cost_view.state is ViewState.CONTENT
+    qtbot.waitUntil(lambda: len(w.rules()) == 12 and w.cost_view.state is ViewState.CONTENT
                     and w.matrix.item(w.matrix.rowCount() - 1, 0) is not None)
     return w, ctx
 
@@ -36,7 +36,7 @@ def test_empty_mode(program_env, qtbot):
 
 def test_matrix_symbols(demo):
     w, _ = demo
-    assert w.accounts() == [A, B] and len(w.rules()) == 10
+    assert w.accounts() == [A, B] and len(w.rules()) == 12
     assert _cell(w, "ec2-public-ip", A).text() == "✗"
     assert _cell(w, "budget-missing", A).text() == "✓"
     assert _cell(w, "iam-user-no-mfa", B).text() == "?"
@@ -65,7 +65,7 @@ def test_billing_not_connected_keeps_matrix(program_env, qtbot):
     w, _ = program_env(make_fleet, ps)
     qtbot.addWidget(w)
     w.show()
-    qtbot.waitUntil(lambda: w.view.state is ViewState.CONTENT and w.cost_note.isVisible() and len(w.rules()) == 10)
+    qtbot.waitUntil(lambda: w.view.state is ViewState.CONTENT and w.cost_note.isVisible() and len(w.rules()) == 12)
     assert w.cost_view.isHidden()                  # one plain line, not a full "Not connected" panel
     assert w.matrix.item(w.matrix.rowCount() - 1, 0).text() == "—"
 
@@ -83,7 +83,7 @@ def test_refresh_error_clears_stale_cells(program_env, qtbot):
     w, _ = program_env(make_fleet, dataclasses.replace(ps, findings=flaky))
     qtbot.addWidget(w)
     w.show()
-    qtbot.waitUntil(lambda: len(w.rules()) == 10)
+    qtbot.waitUntil(lambda: len(w.rules()) == 12)
     flaky.fail = True
     w.refresh()
     qtbot.waitUntil(lambda: w.view.state is ViewState.ERROR)
@@ -127,7 +127,7 @@ def test_accounts_load_after_matrix_renders(program_env, qtbot):
     w, _ = program_env(make_fleet, demo_provider_set())
     qtbot.addWidget(w)
     w.show()
-    qtbot.waitUntil(lambda: len(w.rules()) == 10)
+    qtbot.waitUntil(lambda: len(w.rules()) == 12)
     qtbot.waitUntil(lambda: len(w.scope_bar.accounts) == 2)
     refs = list(w.scope_bar.accounts)
     assert refs
@@ -161,9 +161,9 @@ def test_long_cost_is_not_elided(program_env, qtbot):
     w, _ = program_env(make_fleet, dataclasses.replace(ps, billing=Big(ps.billing)))
     qtbot.addWidget(w)
     w.show()
-    qtbot.waitUntil(lambda: len(w.rules()) == 10 and w.matrix.item(10, 0) is not None
-                    and w.matrix.item(10, 0).text() != "—")
-    it = w.matrix.item(10, 0)
+    qtbot.waitUntil(lambda: len(w.rules()) == 12 and w.matrix.item(12, 0) is not None
+                    and w.matrix.item(12, 0).text() != "—")
+    it = w.matrix.item(12, 0)
     assert it.toolTip() == it.text() and it.text().startswith("12,345,678,901,234,567.89")
     assert w.matrix.columnWidth(0) >= w.matrix.fontMetrics().horizontalAdvance(it.text())
 
@@ -177,7 +177,7 @@ def test_billing_error_keeps_matrix_status(program_env, qtbot):
     w, _ = program_env(make_fleet, dataclasses.replace(ps, billing=Bad()))
     qtbot.addWidget(w)
     w.show()
-    qtbot.waitUntil(lambda: w.cost_view.state is ViewState.ERROR and len(w.rules()) == 10)
+    qtbot.waitUntil(lambda: w.cost_view.state is ViewState.ERROR and len(w.rules()) == 12)
     # an ERROR result has no freshness, so a non-empty label can only come from the matrix result
     assert w.status.freshness_label.text() not in ("", "Not connected")
 

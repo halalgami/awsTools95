@@ -18,7 +18,8 @@ from aws95.core.cancel import CancelToken
 # (lambda:ListFunctions Environment.Variables, cognito-idp:DescribeUserPoolClient ClientSecret, ecs:DescribeTaskDefinition
 # environment/secrets values) - first-drop spec §3.2.
 _LABSNAP_READ = (
-    "access-analyzer:ListAnalyzers", "budgets:ViewBudget", "cloudtrail:DescribeTrails",
+    "access-analyzer:ListAnalyzers", "apigateway:GET", "budgets:ViewBudget", "cloudfront:GetDistributionConfig",
+    "cloudfront:ListDistributions", "cloudtrail:DescribeTrails",
     "cloudtrail:GetTrailStatus", "cognito-idp:DescribeUserPool", "cognito-idp:DescribeUserPoolClient",
     "cognito-idp:ListUserPoolClients", "cognito-idp:ListUserPools", "dynamodb:DescribeContinuousBackups",
     "dynamodb:DescribeTable", "dynamodb:ListTables", "ec2:DescribeAddresses", "ec2:DescribeInstances",
@@ -31,7 +32,8 @@ _LABSNAP_READ = (
     "iam:GetAccountPasswordPolicy", "iam:GetAccountSummary", "iam:ListAccessKeys", "iam:ListMFADevices",
     "iam:ListUsers", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:GetKeyRotationStatus", "kms:ListAliases",
     "kms:ListKeys", "lambda:ListFunctions", "lambda:ListProvisionedConcurrencyConfigs", "logs:DescribeLogGroups",
-    "rds:DescribeDBClusters", "rds:DescribeDBInstances", "s3:GetBucketPolicyStatus",
+    "rds:DescribeDBClusters", "rds:DescribeDBInstances", "route53:GetDNSSEC", "route53:ListHostedZones",
+    "route53:ListQueryLoggingConfigs", "s3:GetBucketPolicyStatus",
     "s3:GetBucketPublicAccessBlock", "s3:GetEncryptionConfiguration", "s3:GetLifecycleConfiguration",
     "s3:ListAllMyBuckets", "secretsmanager:ListSecrets", "securityhub:DescribeHub",
 )
@@ -118,10 +120,19 @@ IAM_ACTIONS: dict[tuple[str, str], str] = {
     ("ecs", "list_services"): "ecs:ListServices",
     ("ecs", "describe_services"): "ecs:DescribeServices",
     ("ecs", "describe_task_definition"): "ecs:DescribeTaskDefinition",
+    ("apigateway", "get_rest_apis"): "apigateway:GET",
+    ("apigateway", "get_stages"): "apigateway:GET",
+    ("apigatewayv2", "get_apis"): "apigateway:GET",
+    ("apigatewayv2", "get_stages"): "apigateway:GET",
+    ("cloudfront", "list_distributions"): "cloudfront:ListDistributions",
+    ("cloudfront", "get_distribution_config"): "cloudfront:GetDistributionConfig",
     ("elbv2", "describe_load_balancers"): "elasticloadbalancing:DescribeLoadBalancers",
     ("elbv2", "describe_listeners"): "elasticloadbalancing:DescribeListeners",
     ("elbv2", "describe_target_groups"): "elasticloadbalancing:DescribeTargetGroups",
     ("elbv2", "describe_target_health"): "elasticloadbalancing:DescribeTargetHealth",
+    ("route53", "list_hosted_zones"): "route53:ListHostedZones",
+    ("route53", "get_dnssec"): "route53:GetDNSSEC",
+    ("route53", "list_query_logging_configs"): "route53:ListQueryLoggingConfigs",
     ("freetier", "get_free_tier_usage"): "freetier:GetFreeTierUsage",
     ("guardduty", "list_detectors"): "guardduty:ListDetectors",
     ("accessanalyzer", "list_analyzers"): "access-analyzer:ListAnalyzers",
@@ -158,11 +169,20 @@ INVOKE_ACTIONS: frozenset[str] = frozenset({"bedrock:InvokeModel"})
 INVOKE_RESOURCES: tuple[str, ...] = ("arn:aws:bedrock:*::foundation-model/anthropic.*",
                                      "arn:aws:bedrock:*:*:inference-profile/*anthropic.*")
 
+# API Gateway authorises reads as apigateway:GET on resource paths, not as List*/Get* actions, so it gets its own
+# statement, limited to the API paths the collector reads (edge-dns spec §5).
+APIGATEWAY_ACTIONS: frozenset[str] = frozenset({"apigateway:GET"})
+APIGATEWAY_RESOURCES: tuple[str, ...] = ("arn:aws:apigateway:*::/restapis", "arn:aws:apigateway:*::/restapis/*",
+                                         "arn:aws:apigateway:*::/apis", "arn:aws:apigateway:*::/apis/*")
+
 
 def policy_json() -> str:
     actions = {a for c in CAPABILITIES for a in c.actions}
+    read_only = actions - INVOKE_ACTIONS - APIGATEWAY_ACTIONS
     return json.dumps({"Version": "2012-10-17", "Statement": [
-        {"Sid": "AWS95ToolsReadOnly", "Effect": "Allow", "Action": sorted(actions - INVOKE_ACTIONS), "Resource": "*"},
+        {"Sid": "AWS95ToolsReadOnly", "Effect": "Allow", "Action": sorted(read_only), "Resource": "*"},
+        {"Sid": "AWS95ToolsApiGatewayRead", "Effect": "Allow", "Action": sorted(actions & APIGATEWAY_ACTIONS),
+         "Resource": list(APIGATEWAY_RESOURCES)},
         {"Sid": "AWS95ToolsInsightsInvoke", "Effect": "Allow", "Action": sorted(actions & INVOKE_ACTIONS),
          "Resource": list(INVOKE_RESOURCES)}]}, indent=2)
 

@@ -54,7 +54,7 @@ SERVICES = [
     ("Amazon DynamoDB", "12.55"), ("AmazonCloudWatch", "9.6125"), ("AWS Lambda", "4.07"),
     ("AWS Key Management Service", "3.00"), ("Amazon Route 53", "1.50"), ("Tax", "72.917"),
 ]
-UNCOVERED = ("AmazonCloudWatch", "AWS Key Management Service", "Amazon Route 53")
+UNCOVERED = ("AmazonCloudWatch", "AWS Key Management Service")
 
 
 def _split(total: Decimal, keys: list[str], shares: list[str]) -> list[tuple[str, Decimal]]:
@@ -167,6 +167,8 @@ RULES = [
     ("cloudtrail-off", "CloudTrail not enabled in region", "No trail records this region.", "high", {}),
     ("ebs-unencrypted", "EBS volume not encrypted", "Volume encryption is off.", "medium", {}),
     ("budget-missing", "No AWS Budget configured", "No budget alarms exist.", "low", {}),
+    ("cloudfront-no-waf", "CloudFront distribution has no WAF", "No web ACL attached.", "low", {}),
+    ("apigw-stage-no-logging", "API stage without access logging", "Access logs are off.", "medium", {}),
 ]
 _SEV = {r[0]: r[3] for r in RULES}
 # (account, rule, rtype, region, rid, state, age_days, seeded, summary)
@@ -182,6 +184,10 @@ FINDINGS = [
     (B, "ec2-public-ip", "ec2.instance", "me-south-1", "i-0a1b2c3d4e5f60004", "open", 12, False, "Public IP 198.51.100.24"),
     (B, "ebs-unencrypted", "ec2.volume", "us-east-1", "vol-0demo00000001", "open", 45, False, "Encrypted=false"),
     (B, "cloudtrail-off", "account", "eu-west-1", "eu-west-1", "open", 300, True, "No trail covers eu-west-1"),
+    (A, "apigw-stage-no-logging", "apigateway.stage", "us-east-1", "a1demo0001/dev", "open", 18, False,
+     "Access logging off"),
+    (B, "cloudfront-no-waf", "cloudfront.distribution", "global", "EDEMO00000002", "open", 40, False,
+     "No web ACL attached"),
     (A, "ec2-public-ip", "ec2.instance", "eu-west-1", "i-0a1b2c3d4e5f60003", "resolved", 20, False, "Public IP removed"),
     (B, "s3-public-access", "s3.bucket", "eu-west-1", "demo-tmp-scratch", "resolved", 9, False, "Block Public Access on"),
     (A, "lambda-old-runtime", "lambda.function", "us-east-1", "report-builder", "accepted", 150, False, "Runtime nodejs16.x"),

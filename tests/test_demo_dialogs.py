@@ -10,7 +10,7 @@ from aws95.providers.demo import demo_provider_set
 
 
 def _findings_ready(w):
-    return len(w.grid.visible_rows()) == 11
+    return len(w.grid.visible_rows()) == 13
 
 
 def _mute(w):

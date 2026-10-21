@@ -150,9 +150,9 @@ class RecordingSession:
 
 
 def test_labsnap_pair_counts():
-    assert len(gate.LABSNAP) == 58
+    assert len(gate.LABSNAP) == 67
     assert gate.ALLOWED == gate.PROBES | gate.LABSNAP | gate.CTWATCH | gate.INSIGHTS
-    assert len(gate.ALLOWED) == 65
+    assert len(gate.ALLOWED) == 74
     assert gate.REVIEWED_EXTRAS == gate.ALLOWED - gate.PROBES
 
 

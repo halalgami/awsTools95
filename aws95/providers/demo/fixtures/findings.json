@@ -178,6 +178,38 @@
   },
   {
    "account": "111111111111",
+   "age_days": 18,
+   "detail": {
+    "summary": "Access logging off"
+   },
+   "first_seen": "2026-09-14T12:00:00+00:00",
+   "mute": null,
+   "region": "us-east-1",
+   "rid": "a1demo0001/dev",
+   "rtype": "apigateway.stage",
+   "rule": "apigw-stage-no-logging",
+   "seeded": false,
+   "severity": "medium",
+   "state": "open"
+  },
+  {
+   "account": "222222222222",
+   "age_days": 40,
+   "detail": {
+    "summary": "No web ACL attached"
+   },
+   "first_seen": "2026-08-23T12:00:00+00:00",
+   "mute": null,
+   "region": "global",
+   "rid": "EDEMO00000002",
+   "rtype": "cloudfront.distribution",
+   "rule": "cloudfront-no-waf",
+   "seeded": false,
+   "severity": "low",
+   "state": "open"
+  },
+  {
+   "account": "111111111111",
    "age_days": 20,
    "detail": {
     "summary": "Public IP removed"
@@ -351,6 +383,24 @@
    "severity": "low",
    "source": "labsnap",
    "title": "No AWS Budget configured"
+  },
+  {
+   "description": "No web ACL attached.",
+   "enabled": true,
+   "id": "cloudfront-no-waf",
+   "params": {},
+   "severity": "low",
+   "source": "labsnap",
+   "title": "CloudFront distribution has no WAF"
+  },
+  {
+   "description": "Access logs are off.",
+   "enabled": true,
+   "id": "apigw-stage-no-logging",
+   "params": {},
+   "severity": "medium",
+   "source": "labsnap",
+   "title": "API stage without access logging"
   }
  ],
  "uncollected": [

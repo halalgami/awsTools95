@@ -53,7 +53,7 @@ def test_empty_mode_not_connected(program_env, qtbot):
 def test_tree_groups_types_by_domain_with_counts(demo):
     w, _ = demo
     domains = [w.tree.topLevelItem(i).text(0) for i in range(w.tree.topLevelItemCount())]
-    assert domains == ["Compute", "Storage", "Database", "Identity"]
+    assert domains == ["Compute", "Storage", "Database", "Identity", "Edge & DNS", "Network"]
     compute = w.tree.topLevelItem(0)
     assert compute.child(0).text(0) == "EC2 Instances (4)"
     assert w.current_rtype() == "ec2.instance"

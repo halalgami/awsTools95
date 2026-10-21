@@ -13,12 +13,12 @@ def test_engine_import_does_not_load_botocore():
     assert out == "False"
 
 
-def test_all_nineteen_collectors_register():
+def test_all_collectors_register():
     import aws95.aws.engines.labsnap.collect.collectors  # noqa: F401
     from aws95.aws.engines.labsnap.collect.base import all_collectors
-    assert sorted(all_collectors()) == ["account", "budgets", "cloudtrail", "cognito", "cost", "dynamodb", "ec2",
+    assert sorted(all_collectors()) == ["account", "apigateway", "budgets", "cloudfront", "cloudtrail", "cognito", "cost", "dynamodb", "ec2",
                                         "ecr", "ecs", "elb", "freetier", "guardrails", "iam", "kms", "lambda",
-                                        "logs", "rds", "s3", "secrets"]
+                                        "logs", "rds", "route53", "s3", "secrets"]
 
 
 CTWATCH_MODULES = ["aws95.aws.engines.ctwatch.rules", "aws95.aws.engines.ctwatch.redact",

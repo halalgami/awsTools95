@@ -93,7 +93,7 @@ def test_demo_insights_payload_is_derived_from_scoped_demo_data(ps):
     open_ = ps.findings.list_findings(Scope(), "open").data.items
     assert sum(whole["open_findings_by_severity"].values()) == len(open_)
     assert sum(one["open_findings_by_severity"].values()) < len(open_)
-    assert sum(whole["resource_counts"].values()) == 12 and sum(one["resource_counts"].values()) < 12
+    assert sum(whole["resource_counts"].values()) == 23 and sum(one["resource_counts"].values()) < 23
     assert whole["activity_events_30d"] == ps.activity.events(Scope()).data.total
     assert one["activity_events_30d"] < whole["activity_events_30d"]
     assert whole["regions_in_scope"] == 3

@@ -19,7 +19,7 @@ def _existing():
 
 
 def test_scan_covers_the_ported_files():
-    assert len([f for f in _existing() if f.name.startswith("test_labsnap_collector_")]) == 19
+    assert len([f for f in _existing() if f.name.startswith("test_labsnap_collector_")]) == 22
 
 
 def test_only_placeholder_account_ids():

@@ -82,14 +82,14 @@ def test_billing_off_for_one_account_is_partial(make_store):
 def test_uncovered_lists_reasons_and_skips_covered(make_store):
     """Review Focus 4."""
     s = make_store()
-    snap(s, A, [M("cost.service.monthly", Decimal("9.6125"), {"service": "Amazon Route 53"}, "2026-10", "USD"),
+    snap(s, A, [M("cost.service.monthly", Decimal("9.6125"), {"service": "Amazon WorkSpaces"}, "2026-10", "USD"),
                 M("cost.service.monthly", Decimal("3.00"), {"service": "Tax"}, "2026-10", "USD"),
                 M("cost.service.monthly", Decimal("50"), {"service": "AWS Lambda"}, "2026-10", "USD"),
-                M("cost.service.monthly", Decimal("1"), {"service": "Amazon Route 53"}, "2026-09", "USD")])
+                M("cost.service.monthly", Decimal("1"), {"service": "Amazon WorkSpaces"}, "2026-09", "USD")])
     r = billing(s).uncovered_spend(Scope(accounts=(A,)))
     assert r.status is Status.OK
     assert {(p.dims["service"], p.dims["reason"], p.amount) for p in r.data} == {
-        ("Amazon Route 53", NO_COLLECTOR, Decimal("9.6125")), ("Tax", NOT_RESOURCE, Decimal("3.00"))}
+        ("Amazon WorkSpaces", NO_COLLECTOR, Decimal("9.6125")), ("Tax", NOT_RESOURCE, Decimal("3.00"))}
 
 
 def test_unknown_dimension_is_an_error(make_store):

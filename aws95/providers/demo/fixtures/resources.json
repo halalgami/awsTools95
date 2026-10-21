@@ -5,7 +5,11 @@
     {"rtype": "s3.bucket", "domain": "Storage", "label": "S3 Buckets"},
     {"rtype": "rds.instance", "domain": "Database", "label": "RDS Instances"},
     {"rtype": "dynamodb.table", "domain": "Database", "label": "DynamoDB Tables"},
-    {"rtype": "iam.user", "domain": "Identity", "label": "IAM Users"}
+    {"rtype": "iam.user", "domain": "Identity", "label": "IAM Users"},
+    {"rtype": "route53.hosted_zone", "domain": "Edge & DNS", "label": "Route 53 Hosted Zones"},
+    {"rtype": "cloudfront.distribution", "domain": "Edge & DNS", "label": "CloudFront Distributions"},
+    {"rtype": "apigateway.api", "domain": "Network", "label": "API Gateway APIs"},
+    {"rtype": "apigateway.stage", "domain": "Network", "label": "API Gateway Stages"}
   ],
   "rows": [
     {"account": "111111111111", "rtype": "ec2.instance", "region": "us-east-1", "rid": "i-0a1b2c3d4e5f60001", "name": "web-01", "state": "running", "attrs": {"instance_type": "t3.medium", "az": "us-east-1a"}, "tags": {"env": "lab"}},
@@ -19,6 +23,17 @@
     {"account": "222222222222", "rtype": "s3.bucket", "region": "eu-west-1", "rid": "demo-tmp-scratch", "name": "demo-tmp-scratch", "state": null, "attrs": {"public_access_block": true, "encryption": null, "lifecycle_rules": 0}, "tags": {}},
     {"account": "111111111111", "rtype": "rds.instance", "region": "us-east-1", "rid": "demo-orders-db", "name": "demo-orders-db", "state": "available", "attrs": {"engine": "postgres", "engine_version": "16.4", "publicly_accessible": false}, "tags": {}},
     {"account": "222222222222", "rtype": "dynamodb.table", "region": "us-east-1", "rid": "demo-sessions", "name": "demo-sessions", "state": "ACTIVE", "attrs": {"billing_mode": "PAY_PER_REQUEST", "pitr": false}, "tags": {}},
-    {"account": "111111111111", "rtype": "iam.user", "region": "global", "rid": "demo-ci-bot", "name": "demo-ci-bot", "state": null, "attrs": {"mfa": false, "access_keys": 1}, "tags": {}}
+    {"account": "111111111111", "rtype": "iam.user", "region": "global", "rid": "demo-ci-bot", "name": "demo-ci-bot", "state": null, "attrs": {"mfa": false, "access_keys": 1}, "tags": {}},
+    {"account": "111111111111", "rtype": "route53.hosted_zone", "region": "global", "rid": "Z0DEMO00000001", "name": "example.com.", "state": null, "attrs": {"name": "example.com.", "private": false, "record_count": 14, "dnssec": "NOT_SIGNING", "query_logging": true}, "tags": {}},
+    {"account": "222222222222", "rtype": "route53.hosted_zone", "region": "global", "rid": "Z0DEMO00000002", "name": "internal.example.net.", "state": null, "attrs": {"name": "internal.example.net.", "private": true, "record_count": 6}, "tags": {}},
+    {"account": "111111111111", "rtype": "cloudfront.distribution", "region": "global", "rid": "EDEMO00000001", "name": "EDEMO00000001", "state": null, "attrs": {"enabled": true, "viewer_protocol": "redirect-to-https", "custom_certificate": true, "min_tls": "TLSv1.2_2021", "waf": true, "access_logging": true, "price_class": "PriceClass_100", "alias_count": 1}, "tags": {}},
+    {"account": "222222222222", "rtype": "cloudfront.distribution", "region": "global", "rid": "EDEMO00000002", "name": "EDEMO00000002", "state": null, "attrs": {"enabled": true, "viewer_protocol": "https-only", "custom_certificate": false, "waf": false, "access_logging": false, "price_class": "PriceClass_All", "alias_count": 0}, "tags": {}},
+    {"account": "111111111111", "rtype": "apigateway.api", "region": "us-east-1", "rid": "a1demo0001", "name": "orders-api", "state": null, "attrs": {"name": "orders-api", "kind": "rest", "endpoint_type": "REGIONAL", "stage_count": 2}, "tags": {}},
+    {"account": "111111111111", "rtype": "apigateway.api", "region": "eu-west-1", "rid": "h1demo0002", "name": "chat", "state": null, "attrs": {"name": "chat", "kind": "websocket", "stage_count": 1}, "tags": {}},
+    {"account": "222222222222", "rtype": "apigateway.api", "region": "me-south-1", "rid": "h1demo0003", "name": "etl-hooks", "state": null, "attrs": {"name": "etl-hooks", "kind": "http", "stage_count": 1}, "tags": {}},
+    {"account": "111111111111", "rtype": "apigateway.stage", "region": "us-east-1", "rid": "a1demo0001/prod", "name": "a1demo0001/prod", "state": null, "attrs": {"api_id": "a1demo0001", "kind": "rest", "access_logging": true, "tracing": true, "waf": true}, "tags": {}},
+    {"account": "111111111111", "rtype": "apigateway.stage", "region": "us-east-1", "rid": "a1demo0001/dev", "name": "a1demo0001/dev", "state": null, "attrs": {"api_id": "a1demo0001", "kind": "rest", "access_logging": false, "tracing": false, "waf": false}, "tags": {}},
+    {"account": "111111111111", "rtype": "apigateway.stage", "region": "eu-west-1", "rid": "h1demo0002/production", "name": "h1demo0002/production", "state": null, "attrs": {"api_id": "h1demo0002", "kind": "websocket", "access_logging": true}, "tags": {}},
+    {"account": "222222222222", "rtype": "apigateway.stage", "region": "me-south-1", "rid": "h1demo0003/$default", "name": "h1demo0003/$default", "state": null, "attrs": {"api_id": "h1demo0003", "kind": "http", "access_logging": true}, "tags": {}}
   ]
 }

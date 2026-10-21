@@ -20,6 +20,9 @@ SERVICE_COLLECTORS: dict[str, tuple[str, ...]] = {
     "AWS Secrets Manager": ("secrets",),
     "Amazon Bedrock": ("guardrails",),
     "AWS Budgets": ("budgets",),
+    "Amazon Route 53": ("route53",),
+    "Amazon API Gateway": ("apigateway",),
+    "Amazon CloudFront": ("cloudfront",),
 }
 # Collectors that describe the account or its bill rather than a billed service.
 META_COLLECTORS = frozenset({"account", "cost", "freetier"})
@@ -36,6 +39,9 @@ SERVICE_RTYPES: dict[str, tuple[str, ...]] = {
     "Amazon Relational Database Service": ("rds.instance",),
     "Amazon DynamoDB": ("dynamodb.table",),
     "AWS Identity and Access Management": ("iam.user",),
+    "Amazon Route 53": ("route53.hosted_zone",),
+    "Amazon API Gateway": ("apigateway.api",),
+    "Amazon CloudFront": ("cloudfront.distribution",),
 }
 
 

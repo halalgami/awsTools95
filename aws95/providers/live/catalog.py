@@ -3,7 +3,10 @@ from __future__ import annotations
 
 CATALOG: tuple[tuple[str, str, str, str], ...] = (
     ("account.summary", "account", "Identity", "Account summary"),
+    ("apigateway.api", "apigateway", "Network", "API Gateway APIs"),
+    ("apigateway.stage", "apigateway", "Network", "API Gateway stages"),
     ("budgets.budget", "budgets", "Billing", "Budgets"),
+    ("cloudfront.distribution", "cloudfront", "Edge & DNS", "CloudFront distributions"),
     ("cloudtrail.trail", "cloudtrail", "Management", "CloudTrail trails"),
     ("cognito.user_pool", "cognito", "Identity", "Cognito user pools"),
     ("cognito.user_pool_client", "cognito", "Identity", "Cognito app clients"),
@@ -28,12 +31,13 @@ CATALOG: tuple[tuple[str, str, str, str], ...] = (
     ("logs.group", "logs", "Management", "Log groups"),
     ("rds.instance", "rds", "Database", "RDS instances"),
     ("rds.cluster", "rds", "Database", "RDS clusters"),
+    ("route53.hosted_zone", "route53", "Edge & DNS", "Route 53 hosted zones"),
     ("s3.bucket", "s3", "Storage", "S3 buckets"),
     ("secrets.secret", "secrets", "Security", "Secrets"),
 )
 BY_RTYPE = {c[0]: c for c in CATALOG}
 # Collectors with scope "global" (their resources carry region "global"; a region filter does not apply).
-GLOBAL_COLLECTORS = frozenset({"account", "budgets", "cost", "freetier", "iam", "s3"})
+GLOBAL_COLLECTORS = frozenset({"account", "budgets", "cloudfront", "cost", "freetier", "iam", "route53", "s3"})
 
 
 def collector_of(rtype: str) -> str:

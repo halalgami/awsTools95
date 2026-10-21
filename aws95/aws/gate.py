@@ -30,6 +30,14 @@ LABSNAP: frozenset[tuple[str, str]] = frozenset({
     # budgets
     ("sts", "get_caller_identity"),                  # the account id DescribeBudgets and the cost LINKED_ACCOUNT filter need
     ("budgets", "describe_budgets"),                 # budget names, limits and cost filters
+    # apigateway (REST v1 and HTTP/WebSocket v2); stage variables are never stored
+    ("apigateway", "get_rest_apis"),                 # REST API ids, names, endpoint types
+    ("apigateway", "get_stages"),                    # REST stage logging, tracing and WAF settings
+    ("apigatewayv2", "get_apis"),                    # HTTP and WebSocket API ids, names, protocols
+    ("apigatewayv2", "get_stages"),                  # HTTP/WebSocket stage access-log settings
+    # cloudfront (global, us-east-1); domain names, aliases and origins are never stored
+    ("cloudfront", "list_distributions"),            # distribution ids, viewer protocol, certificate, WAF, price class
+    ("cloudfront", "get_distribution_config"),       # whether standard access logging is on
     # cloudtrail
     ("cloudtrail", "describe_trails"),               # trail names, home region, bucket name, multi-region flag
     ("cloudtrail", "get_trail_status"),              # IsLogging and delivery times for one trail
@@ -68,6 +76,10 @@ LABSNAP: frozenset[tuple[str, str]] = frozenset({
     ("elbv2", "describe_listeners"),                 # listener ports, protocols, TLS policies
     ("elbv2", "describe_target_groups"),             # target group settings
     ("elbv2", "describe_target_health"),             # healthy/total target counts
+    # route53 (global, us-east-1; hosted zones only, no record sets)
+    ("route53", "list_hosted_zones"),                # zone ids, names, private flag, record counts
+    ("route53", "get_dnssec"),                       # DNSSEC signing status of a public zone
+    ("route53", "list_query_logging_configs"),       # whether a public zone logs DNS queries
     # free tier
     ("freetier", "get_free_tier_usage"),             # free-tier usage, limit and forecast per usage type
     # guardrails

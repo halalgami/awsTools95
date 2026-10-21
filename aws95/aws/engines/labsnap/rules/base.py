@@ -1,6 +1,7 @@
 # Upstream: labsnap/labsnap/rules/base.py @ 1b1d437 — adapted for aws95; owned here from now on.
-"""The rule registry: labsnap's 38 built-in rules, run as shipped (spec F3). User rule folders (labsnap's
-extra_dirs) are deliberately absent: loading code from outside the package is F3-future (spec §9)."""
+"""The rule registry: the 44 built-in rules (labsnap's 38 plus six edge and DNS rules), run as shipped (spec F3). User
+rule folders (labsnap's extra_dirs) are deliberately absent: loading code from outside the package is F3-future
+(spec §9)."""
 from __future__ import annotations
 
 from collections.abc import Iterable

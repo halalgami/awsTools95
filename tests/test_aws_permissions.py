@@ -136,9 +136,18 @@ def test_activity_capability_is_shipped():
 def test_insights_invoke_is_its_own_scoped_statement():
     """Security review (2026-10-20): InvokeModel is billed, so it never sits in the "*" read-only statement; it is
     limited to Anthropic foundation models and inference profiles."""
-    statements = json.loads(permissions.policy_json())["Statement"]
-    assert [s["Sid"] for s in statements] == ["AWS95ToolsReadOnly", "AWS95ToolsInsightsInvoke"]
-    invoke = statements[1]
+    statements = {s["Sid"]: s for s in json.loads(permissions.policy_json())["Statement"]}
+    assert list(statements) == ["AWS95ToolsReadOnly", "AWS95ToolsApiGatewayRead", "AWS95ToolsInsightsInvoke"]
+    invoke = statements["AWS95ToolsInsightsInvoke"]
     assert invoke["Action"] == ["bedrock:InvokeModel"] and "*" not in invoke["Resource"]
     assert all(":foundation-model/anthropic." in r or ":inference-profile/" in r for r in invoke["Resource"])
-    assert "bedrock:InvokeModel" not in statements[0]["Action"]
+    assert "bedrock:InvokeModel" not in statements["AWS95ToolsReadOnly"]["Action"]
+
+
+def test_apigateway_read_is_its_own_scoped_statement():
+    statements = {s["Sid"]: s for s in json.loads(permissions.policy_json())["Statement"]}
+    api = statements["AWS95ToolsApiGatewayRead"]
+    assert api["Action"] == ["apigateway:GET"]
+    assert sorted(api["Resource"]) == ["arn:aws:apigateway:*::/apis", "arn:aws:apigateway:*::/apis/*",
+                                       "arn:aws:apigateway:*::/restapis", "arn:aws:apigateway:*::/restapis/*"]
+    assert "apigateway:GET" not in statements["AWS95ToolsReadOnly"]["Action"]

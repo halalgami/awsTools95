@@ -101,14 +101,14 @@ def test_accept_never_touches_aws(store, monkeypatch):
     assert p.accept(ALL, f, "resource", "local only", None).status is Status.OK
 
 
-def test_rules_are_the_38_shipped(store):
+def test_rules_are_the_44_shipped(store):
     rules = live(store).rules(ALL).data
-    assert len(rules) == 38 and all(r.source == "built-in" and r.enabled for r in rules)
+    assert len(rules) == 44 and all(r.source == "built-in" and r.enabled for r in rules)
 
 
 def test_fleet_matrix(store):
     cells = {(c.rule, c.account): c for c in live(store).fleet(ALL).data}
-    assert len(cells) == 38 * 2
+    assert len(cells) == 44 * 2
     assert cells[("s3.no_lifecycle", DEV)].symbol == "✗" and cells[("s3.no_lifecycle", PROD)].symbol == "✗"
     assert cells[("iam.user_no_mfa", PROD)].symbol == "?"            # iam was denied in prod
     assert cells[("budget.ineffective", PROD)].symbol == "?"         # no Billing in prod
