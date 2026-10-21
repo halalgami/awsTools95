@@ -1,0 +1,353 @@
+{
+ "collectors": [
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "ec2",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 120,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "s3",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 157,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "lambda",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 194,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "rds",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 231,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "dynamodb",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 268,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "iam",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "global"
+     ],
+     "regions_requested": [
+      "global"
+     ]
+    },
+    "duration_ms": 305,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "vpc",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 342,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "cloudtrail",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 379,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "111111111111",
+   "health": {
+    "collector": "cost",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "global"
+     ],
+     "regions_requested": [
+      "global"
+     ]
+    },
+    "duration_ms": 416,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "ec2",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 120,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "s3",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 157,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "lambda",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 194,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "rds",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 231,
+    "error": null,
+    "status": "partial"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "dynamodb",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 268,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "iam",
+    "coverage": {
+     "denials": 1,
+     "regions_covered": [],
+     "regions_requested": [
+      "global"
+     ]
+    },
+    "duration_ms": 305,
+    "error": "AccessDenied: iam:ListUsers",
+    "status": "denied"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "vpc",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 342,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "cloudtrail",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "us-east-1",
+      "eu-west-1"
+     ],
+     "regions_requested": [
+      "us-east-1",
+      "eu-west-1"
+     ]
+    },
+    "duration_ms": 379,
+    "error": null,
+    "status": "ok"
+   }
+  },
+  {
+   "account": "222222222222",
+   "health": {
+    "collector": "cost",
+    "coverage": {
+     "denials": 0,
+     "regions_covered": [
+      "global"
+     ],
+     "regions_requested": [
+      "global"
+     ]
+    },
+    "duration_ms": 416,
+    "error": null,
+    "status": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+  "profiles": [
+    {"name": "lab", "kind": "profile", "region": "us-east-1",
+     "verified": {"account_id": "111111111111", "nickname": "lab-sandbox", "color": "#ffd34d", "profile": "lab"}},
+    {"name": "dev", "kind": "profile", "region": "us-east-1",
+     "verified": {"account_id": "222222222222", "nickname": "dev-shared", "color": "#7ec8ff", "profile": "dev"}},
+    {"name": "personal", "kind": "profile", "region": "eu-west-1", "verified": null}
+  ]
+}

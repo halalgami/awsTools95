@@ -1,0 +1,53 @@
+{
+ "reports": {
+  "advice": [
+   {
+    "bullets": [
+     "Enable MFA for every console user.",
+     "Turn on CloudTrail in eu-west-1.",
+     "Review the deprecated Lambda runtime."
+    ],
+    "title": "Next steps"
+   }
+  ],
+  "improvements": [
+   {
+    "bullets": [
+     "Two security groups allow SSH from anywhere.",
+     "One RDS instance stores data unencrypted."
+    ],
+    "title": "Security"
+   },
+   {
+    "bullets": [
+     "A stopped EC2 instance still has volumes attached."
+    ],
+    "title": "Cost"
+   }
+  ],
+  "insights": [
+   {
+    "bullets": [
+     "Compute and RDS are the two largest services this month.",
+     "Tax is shown as its own line, as Cost Explorer reports it."
+    ],
+    "title": "Spend"
+   },
+   {
+    "bullets": [
+     "Most resources live in us-east-1."
+    ],
+    "title": "Inventory"
+   }
+  ],
+  "oddities": [
+   {
+    "bullets": [
+     "A root console sign-in happened today.",
+     "CloudTrail logging was stopped once this month."
+    ],
+    "title": "Unusual"
+   }
+  ]
+ }
+}

@@ -1,0 +1,1396 @@
+{
+ "breakdown": {
+  "account": [
+   {
+    "amount": "301.15",
+    "dims": {
+     "account": "111111111111"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "111.1915",
+    "dims": {
+     "account": "222222222222"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   }
+  ],
+  "region": [
+   {
+    "amount": "198.40",
+    "dims": {
+     "region": "us-east-1"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "61.0625",
+    "dims": {
+     "region": "eu-west-1"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "47.19",
+    "dims": {
+     "region": "me-south-1"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "105.6890",
+    "dims": {
+     "region": "global"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   }
+  ],
+  "service": [
+   {
+    "amount": "142.18",
+    "dims": {
+     "service": "Amazon Elastic Compute Cloud - Compute"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "96.40",
+    "dims": {
+     "service": "Amazon Relational Database Service"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "38.912",
+    "dims": {
+     "service": "Amazon Simple Storage Service"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "31.20",
+    "dims": {
+     "service": "Amazon Virtual Private Cloud"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "12.55",
+    "dims": {
+     "service": "Amazon DynamoDB"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "9.6125",
+    "dims": {
+     "service": "AmazonCloudWatch"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "4.07",
+    "dims": {
+     "service": "AWS Lambda"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "3.00",
+    "dims": {
+     "service": "AWS Key Management Service"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "1.50",
+    "dims": {
+     "service": "Amazon Route 53"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "72.917",
+    "dims": {
+     "service": "Tax"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   }
+  ],
+  "usage_type": [
+   {
+    "amount": "88.32",
+    "dims": {
+     "usage_type": "USE1-BoxUsage:t3.medium"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "71.04",
+    "dims": {
+     "usage_type": "USE1-RDS:db.t3.small"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "12.905",
+    "dims": {
+     "usage_type": "EUW1-TimedStorage-ByteHrs"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   },
+   {
+    "amount": "240.0765",
+    "dims": {
+     "usage_type": "Other"
+    },
+    "period": "2026-10",
+    "unit": "USD"
+   }
+  ]
+ },
+ "by_account": {
+  "111111111111": {
+   "breakdown": {
+    "region": [
+     {
+      "amount": "130.00",
+      "dims": {
+       "region": "us-east-1"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "40.00",
+      "dims": {
+       "region": "eu-west-1"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "30.00",
+      "dims": {
+       "region": "me-south-1"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "101.15",
+      "dims": {
+       "region": "global"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     }
+    ],
+    "service": [
+     {
+      "amount": "110.00",
+      "dims": {
+       "service": "Amazon Elastic Compute Cloud - Compute"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "70.00",
+      "dims": {
+       "service": "Amazon Relational Database Service"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "25.00",
+      "dims": {
+       "service": "Amazon Simple Storage Service"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "20.00",
+      "dims": {
+       "service": "Amazon Virtual Private Cloud"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "8.00",
+      "dims": {
+       "service": "Amazon DynamoDB"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "5.00",
+      "dims": {
+       "service": "AmazonCloudWatch"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "2.50",
+      "dims": {
+       "service": "AWS Lambda"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "2.00",
+      "dims": {
+       "service": "AWS Key Management Service"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "1.00",
+      "dims": {
+       "service": "Amazon Route 53"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "57.65",
+      "dims": {
+       "service": "Tax"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     }
+    ],
+    "usage_type": [
+     {
+      "amount": "55.00",
+      "dims": {
+       "usage_type": "USE1-BoxUsage:t3.medium"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "45.00",
+      "dims": {
+       "usage_type": "USE1-RDS:db.t3.small"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "8.00",
+      "dims": {
+       "usage_type": "EUW1-TimedStorage-ByteHrs"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "193.15",
+      "dims": {
+       "usage_type": "Other"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     }
+    ]
+   },
+   "daily": [
+    {
+     "amount": "14.69",
+     "dims": {},
+     "period": "2026-09-03",
+     "unit": "USD"
+    },
+    {
+     "amount": "13.68",
+     "dims": {},
+     "period": "2026-09-04",
+     "unit": "USD"
+    },
+    {
+     "amount": "13.32",
+     "dims": {},
+     "period": "2026-09-05",
+     "unit": "USD"
+    },
+    {
+     "amount": "16.02",
+     "dims": {},
+     "period": "2026-09-06",
+     "unit": "USD"
+    },
+    {
+     "amount": "13.33",
+     "dims": {},
+     "period": "2026-09-07",
+     "unit": "USD"
+    },
+    {
+     "amount": "9.86",
+     "dims": {},
+     "period": "2026-09-08",
+     "unit": "USD"
+    },
+    {
+     "amount": "18.93",
+     "dims": {},
+     "period": "2026-09-09",
+     "unit": "USD"
+    },
+    {
+     "amount": "15.12",
+     "dims": {},
+     "period": "2026-09-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "11.81",
+     "dims": {},
+     "period": "2026-09-11",
+     "unit": "USD"
+    },
+    {
+     "amount": "14.40",
+     "dims": {},
+     "period": "2026-09-12",
+     "unit": "USD"
+    },
+    {
+     "amount": "10.02",
+     "dims": {},
+     "period": "2026-09-13",
+     "unit": "USD"
+    },
+    {
+     "amount": "14.65",
+     "dims": {},
+     "period": "2026-09-14",
+     "unit": "USD"
+    },
+    {
+     "amount": "20.19",
+     "dims": {},
+     "period": "2026-09-15",
+     "unit": "USD"
+    },
+    {
+     "amount": "11.43",
+     "dims": {},
+     "period": "2026-09-16",
+     "unit": "USD"
+    },
+    {
+     "amount": "15.75",
+     "dims": {},
+     "period": "2026-09-17",
+     "unit": "USD"
+    },
+    {
+     "amount": "19.41",
+     "dims": {},
+     "period": "2026-09-18",
+     "unit": "USD"
+    },
+    {
+     "amount": "11.32",
+     "dims": {},
+     "period": "2026-09-19",
+     "unit": "USD"
+    },
+    {
+     "amount": "13.92",
+     "dims": {},
+     "period": "2026-09-20",
+     "unit": "USD"
+    },
+    {
+     "amount": "19.13",
+     "dims": {},
+     "period": "2026-09-21",
+     "unit": "USD"
+    },
+    {
+     "amount": "17.21",
+     "dims": {},
+     "period": "2026-09-22",
+     "unit": "USD"
+    },
+    {
+     "amount": "19.45",
+     "dims": {},
+     "period": "2026-09-23",
+     "unit": "USD"
+    },
+    {
+     "amount": "19.56",
+     "dims": {},
+     "period": "2026-09-24",
+     "unit": "USD"
+    },
+    {
+     "amount": "10.28",
+     "dims": {},
+     "period": "2026-09-25",
+     "unit": "USD"
+    },
+    {
+     "amount": "8.85",
+     "dims": {},
+     "period": "2026-09-26",
+     "unit": "USD"
+    },
+    {
+     "amount": "11.40",
+     "dims": {},
+     "period": "2026-09-27",
+     "unit": "USD"
+    },
+    {
+     "amount": "16.13",
+     "dims": {},
+     "period": "2026-09-28",
+     "unit": "USD"
+    },
+    {
+     "amount": "13.81",
+     "dims": {},
+     "period": "2026-09-29",
+     "unit": "USD"
+    },
+    {
+     "amount": "13.13",
+     "dims": {},
+     "period": "2026-09-30",
+     "unit": "USD"
+    },
+    {
+     "amount": "15.74",
+     "dims": {},
+     "period": "2026-10-01",
+     "unit": "USD"
+    },
+    {
+     "amount": "18.43",
+     "dims": {},
+     "period": "2026-10-02",
+     "unit": "USD"
+    }
+   ],
+   "monthly": [
+    {
+     "amount": "336.54",
+     "dims": {},
+     "period": "2025-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "436.99",
+     "dims": {},
+     "period": "2025-11",
+     "unit": "USD"
+    },
+    {
+     "amount": "405.85",
+     "dims": {},
+     "period": "2025-12",
+     "unit": "USD"
+    },
+    {
+     "amount": "354.17",
+     "dims": {},
+     "period": "2026-01",
+     "unit": "USD"
+    },
+    {
+     "amount": "459.44",
+     "dims": {},
+     "period": "2026-02",
+     "unit": "USD"
+    },
+    {
+     "amount": "341.09",
+     "dims": {},
+     "period": "2026-03",
+     "unit": "USD"
+    },
+    {
+     "amount": "471.31",
+     "dims": {},
+     "period": "2026-04",
+     "unit": "USD"
+    },
+    {
+     "amount": "452.07",
+     "dims": {},
+     "period": "2026-05",
+     "unit": "USD"
+    },
+    {
+     "amount": "329.53",
+     "dims": {},
+     "period": "2026-06",
+     "unit": "USD"
+    },
+    {
+     "amount": "475.11",
+     "dims": {},
+     "period": "2026-07",
+     "unit": "USD"
+    },
+    {
+     "amount": "378.39",
+     "dims": {},
+     "period": "2026-08",
+     "unit": "USD"
+    },
+    {
+     "amount": "493.69",
+     "dims": {},
+     "period": "2026-09",
+     "unit": "USD"
+    },
+    {
+     "amount": "301.15",
+     "dims": {},
+     "period": "2026-10",
+     "unit": "USD"
+    }
+   ],
+   "summary": {
+    "as_of": "2026-10-02T12:00:00+00:00",
+    "currency": "USD",
+    "forecast": "478.30",
+    "last_month": "436.92",
+    "mtd": "301.15"
+   },
+   "uncovered": [
+    {
+     "amount": "5.00",
+     "dims": {
+      "service": "AmazonCloudWatch"
+     },
+     "period": "2026-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "2.00",
+     "dims": {
+      "service": "AWS Key Management Service"
+     },
+     "period": "2026-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "1.00",
+     "dims": {
+      "service": "Amazon Route 53"
+     },
+     "period": "2026-10",
+     "unit": "USD"
+    }
+   ]
+  },
+  "222222222222": {
+   "breakdown": {
+    "region": [
+     {
+      "amount": "68.40",
+      "dims": {
+       "region": "us-east-1"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "21.0625",
+      "dims": {
+       "region": "eu-west-1"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "17.19",
+      "dims": {
+       "region": "me-south-1"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "4.5390",
+      "dims": {
+       "region": "global"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     }
+    ],
+    "service": [
+     {
+      "amount": "32.18",
+      "dims": {
+       "service": "Amazon Elastic Compute Cloud - Compute"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "26.40",
+      "dims": {
+       "service": "Amazon Relational Database Service"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "13.912",
+      "dims": {
+       "service": "Amazon Simple Storage Service"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "11.20",
+      "dims": {
+       "service": "Amazon Virtual Private Cloud"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "4.55",
+      "dims": {
+       "service": "Amazon DynamoDB"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "4.6125",
+      "dims": {
+       "service": "AmazonCloudWatch"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "1.57",
+      "dims": {
+       "service": "AWS Lambda"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "1.00",
+      "dims": {
+       "service": "AWS Key Management Service"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "0.50",
+      "dims": {
+       "service": "Amazon Route 53"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "15.267",
+      "dims": {
+       "service": "Tax"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     }
+    ],
+    "usage_type": [
+     {
+      "amount": "33.32",
+      "dims": {
+       "usage_type": "USE1-BoxUsage:t3.medium"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "26.04",
+      "dims": {
+       "usage_type": "USE1-RDS:db.t3.small"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "4.905",
+      "dims": {
+       "usage_type": "EUW1-TimedStorage-ByteHrs"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     },
+     {
+      "amount": "46.9265",
+      "dims": {
+       "usage_type": "Other"
+      },
+      "period": "2026-10",
+      "unit": "USD"
+     }
+    ]
+   },
+   "daily": [
+    {
+     "amount": "5.43",
+     "dims": {},
+     "period": "2026-09-03",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.06",
+     "dims": {},
+     "period": "2026-09-04",
+     "unit": "USD"
+    },
+    {
+     "amount": "4.93",
+     "dims": {},
+     "period": "2026-09-05",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.93",
+     "dims": {},
+     "period": "2026-09-06",
+     "unit": "USD"
+    },
+    {
+     "amount": "4.93",
+     "dims": {},
+     "period": "2026-09-07",
+     "unit": "USD"
+    },
+    {
+     "amount": "3.64",
+     "dims": {},
+     "period": "2026-09-08",
+     "unit": "USD"
+    },
+    {
+     "amount": "7.00",
+     "dims": {},
+     "period": "2026-09-09",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.59",
+     "dims": {},
+     "period": "2026-09-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "4.37",
+     "dims": {},
+     "period": "2026-09-11",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.32",
+     "dims": {},
+     "period": "2026-09-12",
+     "unit": "USD"
+    },
+    {
+     "amount": "3.71",
+     "dims": {},
+     "period": "2026-09-13",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.42",
+     "dims": {},
+     "period": "2026-09-14",
+     "unit": "USD"
+    },
+    {
+     "amount": "7.47",
+     "dims": {},
+     "period": "2026-09-15",
+     "unit": "USD"
+    },
+    {
+     "amount": "4.23",
+     "dims": {},
+     "period": "2026-09-16",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.83",
+     "dims": {},
+     "period": "2026-09-17",
+     "unit": "USD"
+    },
+    {
+     "amount": "7.18",
+     "dims": {},
+     "period": "2026-09-18",
+     "unit": "USD"
+    },
+    {
+     "amount": "4.18",
+     "dims": {},
+     "period": "2026-09-19",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.15",
+     "dims": {},
+     "period": "2026-09-20",
+     "unit": "USD"
+    },
+    {
+     "amount": "7.07",
+     "dims": {},
+     "period": "2026-09-21",
+     "unit": "USD"
+    },
+    {
+     "amount": "6.36",
+     "dims": {},
+     "period": "2026-09-22",
+     "unit": "USD"
+    },
+    {
+     "amount": "7.20",
+     "dims": {},
+     "period": "2026-09-23",
+     "unit": "USD"
+    },
+    {
+     "amount": "7.23",
+     "dims": {},
+     "period": "2026-09-24",
+     "unit": "USD"
+    },
+    {
+     "amount": "3.80",
+     "dims": {},
+     "period": "2026-09-25",
+     "unit": "USD"
+    },
+    {
+     "amount": "3.28",
+     "dims": {},
+     "period": "2026-09-26",
+     "unit": "USD"
+    },
+    {
+     "amount": "4.22",
+     "dims": {},
+     "period": "2026-09-27",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.97",
+     "dims": {},
+     "period": "2026-09-28",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.11",
+     "dims": {},
+     "period": "2026-09-29",
+     "unit": "USD"
+    },
+    {
+     "amount": "4.86",
+     "dims": {},
+     "period": "2026-09-30",
+     "unit": "USD"
+    },
+    {
+     "amount": "5.82",
+     "dims": {},
+     "period": "2026-10-01",
+     "unit": "USD"
+    },
+    {
+     "amount": "6.82",
+     "dims": {},
+     "period": "2026-10-02",
+     "unit": "USD"
+    }
+   ],
+   "monthly": [
+    {
+     "amount": "124.47",
+     "dims": {},
+     "period": "2025-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "161.62",
+     "dims": {},
+     "period": "2025-11",
+     "unit": "USD"
+    },
+    {
+     "amount": "150.11",
+     "dims": {},
+     "period": "2025-12",
+     "unit": "USD"
+    },
+    {
+     "amount": "130.99",
+     "dims": {},
+     "period": "2026-01",
+     "unit": "USD"
+    },
+    {
+     "amount": "169.93",
+     "dims": {},
+     "period": "2026-02",
+     "unit": "USD"
+    },
+    {
+     "amount": "126.16",
+     "dims": {},
+     "period": "2026-03",
+     "unit": "USD"
+    },
+    {
+     "amount": "174.32",
+     "dims": {},
+     "period": "2026-04",
+     "unit": "USD"
+    },
+    {
+     "amount": "167.20",
+     "dims": {},
+     "period": "2026-05",
+     "unit": "USD"
+    },
+    {
+     "amount": "121.88",
+     "dims": {},
+     "period": "2026-06",
+     "unit": "USD"
+    },
+    {
+     "amount": "175.73",
+     "dims": {},
+     "period": "2026-07",
+     "unit": "USD"
+    },
+    {
+     "amount": "139.95",
+     "dims": {},
+     "period": "2026-08",
+     "unit": "USD"
+    },
+    {
+     "amount": "182.60",
+     "dims": {},
+     "period": "2026-09",
+     "unit": "USD"
+    },
+    {
+     "amount": "111.1915",
+     "dims": {},
+     "period": "2026-10",
+     "unit": "USD"
+    }
+   ],
+   "summary": {
+    "as_of": "2026-10-02T12:00:00+00:00",
+    "currency": "USD",
+    "forecast": "176.80",
+    "last_month": "161.50",
+    "mtd": "111.1915"
+   },
+   "uncovered": [
+    {
+     "amount": "4.6125",
+     "dims": {
+      "service": "AmazonCloudWatch"
+     },
+     "period": "2026-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "1.00",
+     "dims": {
+      "service": "AWS Key Management Service"
+     },
+     "period": "2026-10",
+     "unit": "USD"
+    },
+    {
+     "amount": "0.50",
+     "dims": {
+      "service": "Amazon Route 53"
+     },
+     "period": "2026-10",
+     "unit": "USD"
+    }
+   ]
+  }
+ },
+ "daily": [
+  {
+   "amount": "20.12",
+   "dims": {},
+   "period": "2026-09-03",
+   "unit": "USD"
+  },
+  {
+   "amount": "18.74",
+   "dims": {},
+   "period": "2026-09-04",
+   "unit": "USD"
+  },
+  {
+   "amount": "18.25",
+   "dims": {},
+   "period": "2026-09-05",
+   "unit": "USD"
+  },
+  {
+   "amount": "21.95",
+   "dims": {},
+   "period": "2026-09-06",
+   "unit": "USD"
+  },
+  {
+   "amount": "18.26",
+   "dims": {},
+   "period": "2026-09-07",
+   "unit": "USD"
+  },
+  {
+   "amount": "13.50",
+   "dims": {},
+   "period": "2026-09-08",
+   "unit": "USD"
+  },
+  {
+   "amount": "25.93",
+   "dims": {},
+   "period": "2026-09-09",
+   "unit": "USD"
+  },
+  {
+   "amount": "20.71",
+   "dims": {},
+   "period": "2026-09-10",
+   "unit": "USD"
+  },
+  {
+   "amount": "16.18",
+   "dims": {},
+   "period": "2026-09-11",
+   "unit": "USD"
+  },
+  {
+   "amount": "19.72",
+   "dims": {},
+   "period": "2026-09-12",
+   "unit": "USD"
+  },
+  {
+   "amount": "13.73",
+   "dims": {},
+   "period": "2026-09-13",
+   "unit": "USD"
+  },
+  {
+   "amount": "20.07",
+   "dims": {},
+   "period": "2026-09-14",
+   "unit": "USD"
+  },
+  {
+   "amount": "27.66",
+   "dims": {},
+   "period": "2026-09-15",
+   "unit": "USD"
+  },
+  {
+   "amount": "15.66",
+   "dims": {},
+   "period": "2026-09-16",
+   "unit": "USD"
+  },
+  {
+   "amount": "21.58",
+   "dims": {},
+   "period": "2026-09-17",
+   "unit": "USD"
+  },
+  {
+   "amount": "26.59",
+   "dims": {},
+   "period": "2026-09-18",
+   "unit": "USD"
+  },
+  {
+   "amount": "15.50",
+   "dims": {},
+   "period": "2026-09-19",
+   "unit": "USD"
+  },
+  {
+   "amount": "19.07",
+   "dims": {},
+   "period": "2026-09-20",
+   "unit": "USD"
+  },
+  {
+   "amount": "26.20",
+   "dims": {},
+   "period": "2026-09-21",
+   "unit": "USD"
+  },
+  {
+   "amount": "23.57",
+   "dims": {},
+   "period": "2026-09-22",
+   "unit": "USD"
+  },
+  {
+   "amount": "26.65",
+   "dims": {},
+   "period": "2026-09-23",
+   "unit": "USD"
+  },
+  {
+   "amount": "26.79",
+   "dims": {},
+   "period": "2026-09-24",
+   "unit": "USD"
+  },
+  {
+   "amount": "14.08",
+   "dims": {},
+   "period": "2026-09-25",
+   "unit": "USD"
+  },
+  {
+   "amount": "12.13",
+   "dims": {},
+   "period": "2026-09-26",
+   "unit": "USD"
+  },
+  {
+   "amount": "15.62",
+   "dims": {},
+   "period": "2026-09-27",
+   "unit": "USD"
+  },
+  {
+   "amount": "22.10",
+   "dims": {},
+   "period": "2026-09-28",
+   "unit": "USD"
+  },
+  {
+   "amount": "18.92",
+   "dims": {},
+   "period": "2026-09-29",
+   "unit": "USD"
+  },
+  {
+   "amount": "17.99",
+   "dims": {},
+   "period": "2026-09-30",
+   "unit": "USD"
+  },
+  {
+   "amount": "21.56",
+   "dims": {},
+   "period": "2026-10-01",
+   "unit": "USD"
+  },
+  {
+   "amount": "25.25",
+   "dims": {},
+   "period": "2026-10-02",
+   "unit": "USD"
+  }
+ ],
+ "free_tier": [
+  {
+   "actual": "412000",
+   "forecast": "960000",
+   "limit": "1000000",
+   "metric": "Requests",
+   "period": "2026-10",
+   "service": "AWS Lambda",
+   "unit": "Requests"
+  },
+  {
+   "actual": "4.2",
+   "forecast": "5.6",
+   "limit": "5",
+   "metric": "Standard storage",
+   "period": "2026-10",
+   "service": "Amazon Simple Storage Service",
+   "unit": "GB-Mo"
+  },
+  {
+   "actual": "0.8",
+   "forecast": null,
+   "limit": "25",
+   "metric": "Storage",
+   "period": "2026-10",
+   "service": "Amazon DynamoDB",
+   "unit": "GB-Mo"
+  }
+ ],
+ "monthly": [
+  {
+   "amount": "461.01",
+   "dims": {},
+   "period": "2025-10",
+   "unit": "USD"
+  },
+  {
+   "amount": "598.61",
+   "dims": {},
+   "period": "2025-11",
+   "unit": "USD"
+  },
+  {
+   "amount": "555.96",
+   "dims": {},
+   "period": "2025-12",
+   "unit": "USD"
+  },
+  {
+   "amount": "485.16",
+   "dims": {},
+   "period": "2026-01",
+   "unit": "USD"
+  },
+  {
+   "amount": "629.37",
+   "dims": {},
+   "period": "2026-02",
+   "unit": "USD"
+  },
+  {
+   "amount": "467.25",
+   "dims": {},
+   "period": "2026-03",
+   "unit": "USD"
+  },
+  {
+   "amount": "645.63",
+   "dims": {},
+   "period": "2026-04",
+   "unit": "USD"
+  },
+  {
+   "amount": "619.27",
+   "dims": {},
+   "period": "2026-05",
+   "unit": "USD"
+  },
+  {
+   "amount": "451.41",
+   "dims": {},
+   "period": "2026-06",
+   "unit": "USD"
+  },
+  {
+   "amount": "650.84",
+   "dims": {},
+   "period": "2026-07",
+   "unit": "USD"
+  },
+  {
+   "amount": "518.34",
+   "dims": {},
+   "period": "2026-08",
+   "unit": "USD"
+  },
+  {
+   "amount": "676.29",
+   "dims": {},
+   "period": "2026-09",
+   "unit": "USD"
+  },
+  {
+   "amount": "412.3415",
+   "dims": {},
+   "period": "2026-10",
+   "unit": "USD"
+  }
+ ],
+ "summary": {
+  "as_of": "2026-10-02T12:00:00+00:00",
+  "currency": "USD",
+  "forecast": "655.10",
+  "last_month": "598.42",
+  "mtd": "412.3415"
+ },
+ "uncovered": [
+  {
+   "amount": "9.6125",
+   "dims": {
+    "service": "AmazonCloudWatch"
+   },
+   "period": "2026-10",
+   "unit": "USD"
+  },
+  {
+   "amount": "3.00",
+   "dims": {
+    "service": "AWS Key Management Service"
+   },
+   "period": "2026-10",
+   "unit": "USD"
+  },
+  {
+   "amount": "1.50",
+   "dims": {
+    "service": "Amazon Route 53"
+   },
+   "period": "2026-10",
+   "unit": "USD"
+  }
+ ]
+}

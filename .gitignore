@@ -1,0 +1,109 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# AWS credentials - NEVER commit these
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+
+# SQLite database
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated reports
+*_report.csv
+*_report_summary.md
+
+# Logs
+*.log
+logs/
+
+# Qt/PySide6
+*.qmlc
+*.jsc
+.qmake.stash
+
+# Test / Coverage
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# mypy
+.mypy_cache/
+
+# Backup files
+*.bak
+*.backup
+
+# Local tooling / brainstorm artifacts
+.superpowers/
+.playwright-mcp/
+.claude/settings.local.json
+# Real identifiers for tests/test_publish_check.py (owner's machine only; never commit)
+tests/publish_needles.local.txt
+
+# Local cost/audit notes (contain account-specific details)
+AWS_COST_*.md
+
+# Test outputs
+tests/artifacts/
+
+# Nuitka outputs
+*.build/
+*.dist/
+*.onefile-build/

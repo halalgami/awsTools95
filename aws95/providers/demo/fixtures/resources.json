@@ -1,0 +1,24 @@
+{
+  "types": [
+    {"rtype": "ec2.instance", "domain": "Compute", "label": "EC2 Instances"},
+    {"rtype": "lambda.function", "domain": "Compute", "label": "Lambda Functions"},
+    {"rtype": "s3.bucket", "domain": "Storage", "label": "S3 Buckets"},
+    {"rtype": "rds.instance", "domain": "Database", "label": "RDS Instances"},
+    {"rtype": "dynamodb.table", "domain": "Database", "label": "DynamoDB Tables"},
+    {"rtype": "iam.user", "domain": "Identity", "label": "IAM Users"}
+  ],
+  "rows": [
+    {"account": "111111111111", "rtype": "ec2.instance", "region": "us-east-1", "rid": "i-0a1b2c3d4e5f60001", "name": "web-01", "state": "running", "attrs": {"instance_type": "t3.medium", "az": "us-east-1a"}, "tags": {"env": "lab"}},
+    {"account": "111111111111", "rtype": "ec2.instance", "region": "us-east-1", "rid": "i-0a1b2c3d4e5f60002", "name": "batch-worker", "state": "stopped", "attrs": {"instance_type": "m5.large", "az": "us-east-1b"}, "tags": {"env": "lab", "owner": "data"}},
+    {"account": "111111111111", "rtype": "ec2.instance", "region": "eu-west-1", "rid": "i-0a1b2c3d4e5f60003", "name": "bastion", "state": "running", "attrs": {"instance_type": "t3.micro", "az": "eu-west-1a"}, "tags": {}},
+    {"account": "222222222222", "rtype": "ec2.instance", "region": "me-south-1", "rid": "i-0a1b2c3d4e5f60004", "name": "etl-node", "state": null, "attrs": {"instance_type": "c5.xlarge"}, "tags": {}, "partial": true},
+    {"account": "111111111111", "rtype": "lambda.function", "region": "us-east-1", "rid": "fn-report-builder", "name": "report-builder", "state": "Active", "attrs": {"runtime": "python3.12", "memory_mb": 512}, "tags": {}},
+    {"account": "222222222222", "rtype": "lambda.function", "region": "us-east-1", "rid": "fn-image-resizer", "name": "image-resizer", "state": "Active", "attrs": {"runtime": "(container)", "memory_mb": 1024}, "tags": {"team": "web"}},
+    {"account": "111111111111", "rtype": "s3.bucket", "region": "us-east-1", "rid": "demo-logs-archive", "name": "demo-logs-archive", "state": null, "attrs": {"public_access_block": true, "encryption": "AES256", "lifecycle_rules": 1}, "tags": {}},
+    {"account": "111111111111", "rtype": "s3.bucket", "region": "us-east-1", "rid": "demo-static-site", "name": "demo-static-site", "state": null, "attrs": {"public_access_block": false, "encryption": "AES256", "lifecycle_rules": 0}, "tags": {"site": "docs"}},
+    {"account": "222222222222", "rtype": "s3.bucket", "region": "eu-west-1", "rid": "demo-tmp-scratch", "name": "demo-tmp-scratch", "state": null, "attrs": {"public_access_block": true, "encryption": null, "lifecycle_rules": 0}, "tags": {}},
+    {"account": "111111111111", "rtype": "rds.instance", "region": "us-east-1", "rid": "demo-orders-db", "name": "demo-orders-db", "state": "available", "attrs": {"engine": "postgres", "engine_version": "16.4", "publicly_accessible": false}, "tags": {}},
+    {"account": "222222222222", "rtype": "dynamodb.table", "region": "us-east-1", "rid": "demo-sessions", "name": "demo-sessions", "state": "ACTIVE", "attrs": {"billing_mode": "PAY_PER_REQUEST", "pitr": false}, "tags": {}},
+    {"account": "111111111111", "rtype": "iam.user", "region": "global", "rid": "demo-ci-bot", "name": "demo-ci-bot", "state": null, "attrs": {"mfa": false, "access_keys": 1}, "tags": {}}
+  ]
+}

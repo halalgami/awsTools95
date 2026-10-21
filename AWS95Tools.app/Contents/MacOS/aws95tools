@@ -1,0 +1,14 @@
+#!/bin/bash
+# AWS 95 Tools launcher (macOS .app bundle). Runs the new aws95 package from the project folder.
+APP_DIR="$(dirname "$(dirname "$(dirname "$0")")")"
+PROJECT_DIR="$(dirname "$APP_DIR")"
+cd "$PROJECT_DIR" || exit 1
+
+if command -v uv >/dev/null 2>&1; then
+    exec uv run python -m aws95 "$@"
+elif [ -x ".venv/bin/python" ]; then
+    exec .venv/bin/python -m aws95 "$@"
+else
+    osascript -e 'display alert "AWS 95 Tools" message "Install uv (https://docs.astral.sh/uv/) or run: uv sync in the project folder."'
+    exit 1
+fi
